@@ -7,8 +7,8 @@
 
    Filename: mas_register.js
 
-   Author:  
-   Date:    
+   Author:  Maria De Jesus Rizo
+   Date:    4.18.19
    
    Function List
    =============
@@ -28,3 +28,16 @@
 
 */
 
+window.addEventListener("load", function () {
+      calcCart();
+      document.onclick.regSubmit = sessionTest;
+      document.onblur.fnBox = calcCart;
+});
+
+function sessionTest() {
+
+}
+
+function calcCart() {
+
+}

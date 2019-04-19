@@ -7,8 +7,8 @@
 
    Filename: mas_reg2.js
 
-   Author:  
-   Date:    
+   Author:  Maria De Jesus Rizo
+   Date:    4.18.19
 
 
    Function List
@@ -20,4 +20,3 @@
 
 
 */
-

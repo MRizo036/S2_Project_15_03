@@ -30,11 +30,26 @@
 
 window.addEventListener("load", function () {
       calcCart();
-      document.onclick.regSubmit = sessionTest;
-      document.onblur.fnBox = calcCart;
+
+      document.getElementById("regSubmit").onclick = sessionTest;
+      document.getElementById("fnBox").onblur = calcCart;
+      document.getElementById("lnBox").onblur = calcCart;
+      document.getElementById("groupBox").onblur = calcCart;
+      document.getElementById("mailBox").onblur = calcCart;
+      document.getElementById("phoneBox").onblur = calcCart;
+      document.getElementById("banquetBox").onblur = calcCart;
+
+      document.getElementById("sessionBox").onchange = calcCart;
+
+      document.getElementById("mediaCB").onclick = calcCart;
 });
 
 function sessionTest() {
+      var confSession = document.getElementById("sessionBox");
+      if (confSession.selectedIndex === -1) {
+            confSession
+
+      }
 
 }
 

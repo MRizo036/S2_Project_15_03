@@ -45,7 +45,7 @@ window.addEventListener("load", function () {
 });
 
 function sessionTest() {
-      sessionStorage.confSession = document.getElementById("sessionBox");
+      var confSession = document.getElementById("sessionBox");
       if (confSession.selectedIndex === -1) {
             confSession.setCustomValidity("Select a Session Package");
       } else {
@@ -55,25 +55,23 @@ function sessionTest() {
 }
 
 function calcCart() {
-      sessionStorage.confName = document.getElementById("fnBox").value + " " + document.getElementById("lnBox").value;
-
-      sessionStorage.confGroup = document.getElementById("groupBox").value;
-      sessionStorage.confMail = document.getElementById("mailBox").value;
-      sessionStorage.confPhone = document.getElementById("phoneBox").value;
-      sessionStorage.confBanquet = document.getElementById("banquetBox").value;
-
+      sessionStorage.confName = document.forms.regForm.elements.fnBox.value + " " + document.forms.regForm.elements.lnBox.value;
+      sessionStorage.confGroup = document.forms.regForm.elements.groupBox.value;
+      sessionStorage.confMail = document.forms.regForm.elements.mailBox.value;
+      sessionStorage.confPhone = document.forms.regForm.elements.phoneBox.value;
+      sessionStorage.confBanquet = document.forms.regForm.elements.banquetBox.value;
       sessionStorage.confBanquetCost = sessionStorage.confBanquet * 55;
+      var selectedIndex = document.getElementById("sessionBox").selectedIndex;
 
-      sessionStorage.selectedIndex = document.forms.regForm.elements.sessionBox.value;
-      if (sessionBox.selectedIndex !== -1) {
-            sessionStorage.confSession = document.forms.regForm.elements.sessionBox[selectedIndex].textContent;
-            sessionStorage.confSessionCost = document.forms.regForm.elements.sessionBox.value;
+      if (selectedIndex != -1) {
+            sessionStorage.confSession = document.forms.regForm.elements.sessionBox[selectedIndex].text;
+            sessionStorage.confSessionCost = document.forms.regForm.elements.sessionBox[selectedIndex].value;
       } else {
             sessionStorage.confSession = "";
             sessionStorage.confSessionCost = 0;
       }
 
-      if (document.getElementById("mediaCB").onclick) {
+      if (document.forms.regForm.elements.mediaCB.checked) {
             sessionStorage.confPack = "yes";
             sessionStorage.confPackCost = 115;
       } else {
@@ -87,12 +85,13 @@ function calcCart() {
 }
 
 function writeSessionValues() {
-      sessionStorage.confName = document.getElementById("regName");
-      sessionStorage.confGroup = document.getElementById("regGroup");
-      sessionStorage.confMail = document.getElementById("regEmail");
-      sessionStorage.confPhone = document.getElementById("regPhone");
-      sessionStorage.confSession = document.getElementById("regSession");
-      sessionStorage.confBanquet = document.getElementById("regBanquet");
-      sessionStorage.confPack = document.getElementById("regPack");
+      document.getElementById("regName").textContent = sessionStorage.confName;
+      document.getElementById("regGroup").textContent = sessionStorage.confGroup;
+      document.getElementById("regEmail").textContent = sessionStorage.confMail;
+      document.getElementById("regPhone").textContent = sessionStorage.confPhone;
+      document.getElementById("regSession").textContent = sessionStorage.confSession;
+      document.getElementById("regBanquet").textContent = sessionStorage.confBanquet;
+      document.getElementById("regPack").textContent = sessionStorage.confPack;
 
+      document.getElementById("regTotal").textContent = "$" + sessionStorage.confTotal;
 }

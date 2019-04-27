@@ -20,7 +20,7 @@
 
 
 */
-
+// The function bellow is coppied form the mas_register form. All comments written for this function in that file apply here as well.
 function writeSessionValues() {
       document.getElementById("regName").textContent = sessionStorage.confName;
       document.getElementById("regGroup").textContent = sessionStorage.confGroup;
